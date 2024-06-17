@@ -285,43 +285,53 @@ section {
     color: var(--main-color);
 }
 
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Creates three columns of equal size */
-    grid-gap: 20px; /* Space between grid items */
-}
-
-/* Style for individual gallery items */
 .gallery {
-    flex: 0 1 calc(33.333% - 20px); /* Three items per row, accounting for gap */
-    position: relative; /* Allows for absolute positioning of elements inside */
-    overflow: hidden; /* Prevents content from spilling out */
-    border-radius: 8px; /* Rounded corners for the gallery items */
+    padding: .4rem 3%;
 }
 
-.gallery img {
-    width: 100%; /* Ensure images cover the item area */
+.video-gallery video, .big-gallery img {
+    width: 100%; /* Make video and last picture take full width */
+    max-height: 500px; /* Adjust based on preference */
+    object-fit: cover; /* Ensure the aspect ratio is maintained */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    border-radius: 8px; /* Ensures the image corners are rounded like its container */
+}
+
+/* Hover effects */
+.video-gallery video:hover, .big-gallery img:hover {
+    transform: scale(1.05); /* Slightly zoom in the image */
+}
+
+.gallery-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the space between images */
+}
+
+.small-gallery img {
+    width: 100%; /* Adjust based on preference */
     height: auto; /* Maintain aspect ratio */
     transition: transform 0.3s ease; /* Smooth transition for zoom effect */
     border-radius: 8px; /* Ensures the image corners are rounded like its container */
 }
 
 /* Hover effects */
-.gallery:hover img {
+.small-gallery:hover img {
     transform: scale(1.05); /* Slightly zoom in the image */
 }
 
-/* Target the fourth gallery item */
-.gallery-container > .gallery:nth-child(4) {
-    grid-column: 1 / -1; /* Makes the item span all columns */
-    display: flex;
-    justify-content: center;
+.big-gallery img {
+    width: 100%; /* Make the last picture take full width */
+    max-height: 500px; /* Adjust based on preference */
+    object-fit: cover; /* Ensure the aspect ratio is maintained */
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+    border-radius: 8px; /* Ensures the image corners are rounded like its container */
 }
 
-.gallery-container > .gallery:nth-child(4) img {
-    width: 50%; /* Adjusts the size of the fourth image. You can set this to the desired size */
+/* Hover effects */
+.big-gallery img:hover {
+    transform: scale(1.05); /* Slightly zoom in the image */
 }
-
 
 /* REVIEW */
 .review {
